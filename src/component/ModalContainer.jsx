@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import useOutsideClick from "../helper/useOutsideClick";
 
-const ModalContainer = ({ isOpen, handleChange }) => {
+const ModalContainer = ({ isOpen, name = "", handleChange }) => {
   const modalRef = useRef();
 
   useOutsideClick(modalRef, () => {
@@ -12,7 +12,9 @@ const ModalContainer = ({ isOpen, handleChange }) => {
   return (
     <div ref={modalRef}>
       <Modal isOpen={isOpen} toggle={handleChange} backdrop={false}>
-        <ModalHeader toggle={handleChange}>Modal title</ModalHeader>
+        <ModalHeader toggle={handleChange}>
+          {name === "" ? "Modal title" : name}
+        </ModalHeader>
         <ModalBody>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -27,7 +29,7 @@ const ModalContainer = ({ isOpen, handleChange }) => {
           Do Something
         </Button>{" "} */}
           <Button color="secondary" onClick={handleChange}>
-            Cancel
+            Cancel {name}
           </Button>
         </ModalFooter>
       </Modal>
