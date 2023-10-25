@@ -37,4 +37,4 @@ const ModalContainer = ({ isOpen, name = "", handleChange }) => {
   );
 };
 
-export default ModalContainer;
+export default React.memo(ModalContainer);
