@@ -23,18 +23,25 @@ function App() {
 
   return (
     <div className="App container">
-      <h1>React Modal</h1>
-      <div className="d-flex gap-1">
-        <ButtonContainer name="Main Button" handleChange={handleSelectItem} />
-
-        {buttonDetails.map((item, i) => (
-          <ButtonContainer
-            key={item}
-            name={`Button ${item}`}
-            handleChange={handleSelectItem}
-          />
-        ))}
-      </div>
+      <h1 className="text-center">React Reuseable Modal</h1>
+      <section className="main ">
+        <div className="left-side  card  p-5">
+          <h3 className="">React Single Modal</h3>
+          <ButtonContainer name="Main Button" handleChange={handleSelectItem} />
+        </div>
+        <div className="right-side  card p-5 ">
+          <h3 className="text-center">React Multiple Modal</h3>
+          <div className="right-side-wrapper">
+            {buttonDetails.map((item, i) => (
+              <ButtonContainer
+                key={item}
+                name={`Button ${item}`}
+                handleChange={handleSelectItem}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <ModalContainer
         key={selectedItem}
